@@ -1,0 +1,93 @@
+<div class="main-container">
+  <div class="text-container ul-container">
+    <h3>How to book a lap</h3>
+    <ul class="big-ul">
+      <li>Register/Log in</li>
+      <ul class="small-ul">
+        <li>Register and create an account</li>
+        <li>You already have an account? Log In and enjoy the advantages</li>
+      </ul>
+      <li>Book lap/Season ticket</li>
+      <ul class="small-ul">
+        <li>Book your lap with your car or rent one of our track monsters</li>
+        <li>
+          You are addicted to the green hell experience? Buy the Seasone ticket
+          to drive whenever you want
+        </li>
+      </ul>
+      <li>Drive</li>
+      <ul class="small-ul">
+        <li>
+          Scan the Qr-code on your ticket or pass the Green Hell Card and open
+          the barriers
+        </li>
+        <li>You want to do another lap? pass your credit card and drive</li>
+      </ul>
+    </ul>
+    <div class="w-100 d-flex justify-content-center">
+      <button
+        class="w-50 my-2 flag-btn btn"
+        [routerLink]="['/pages/driving-experience/book-session']"
+      >
+        Book a Lap
+      </button>
+    </div>
+
+    <img
+      id="pov"
+      src="../../../assets/images/driving-pov.jfif"
+      alt="driving pov"
+    />
+  </div>
+  <div class="right-container">
+    <div class="text-container">
+      <h3>Rent a car</h3>
+      <p>
+        Get your adrenaline pumping and unleash your inner racer! 🏎️ Rent our
+        track-ready machine and experience the thrill of speed like never
+        before. It's time to live life in the fast lane. 🚀 #TrackDayAdventures
+      </p>
+      <div class="cars-imgs">
+        <a [routerLink]="['/cars']">
+          <img
+            class="car-img"
+            src="../../../assets/images/992gt3rs.jfif"
+            alt="racecar"
+          />
+        </a>
+        <a [routerLink]="['/cars']">
+          <img
+            class="car-img"
+            src="../../../assets/images/m2comp.jfif"
+            alt="racecar"
+          />
+        </a>
+        <a [routerLink]="['/cars']">
+          <img
+            class="car-img"
+            src="../../../assets/images/gtblalckseries.jfif"
+            alt="racecar"
+          />
+        </a>
+        <a [routerLink]="['/cars']">
+          <img
+            class="car-img"
+            src="../../../assets/images/yellow_bmw.jpeg"
+            alt="racecar"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="text-container">
+      <h3>The Green Hell</h3>
+      <a href="">
+        <img
+          class="w-100 layout"
+          src="../../../assets/images/cornrs-layout.jpg"
+          alt="racecar"
+        />
+      </a>
+    </div>
+  </div>
+</div>

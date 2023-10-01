@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10 column">
+      <h3 class="my-3">The Garage</h3>
+      <table class="w-100 table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th scope="row">Brand</th>
+            <th scope="row">Model</th>
+            <th scope="row">Update</th>
+            <th scope="row">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{ car.brand }}</td>
+            <td>{{ car.model }}</td>
+            <td>
+              <a
+                class="btn btn-primary"
+                [routerLink]="['/backoffice/rent-car-form', car.id]"
+                >Update</a
+              >
+            </td>
+            <td>
+              <button (click)="deleteCar(car.id)" class="btn btn-danger">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

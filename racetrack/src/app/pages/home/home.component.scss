@@ -1,0 +1,110 @@
+
+.main-container{
+
+  background-image: url(../../../assets/images/nurburgring-iconic.jpg);
+  background-position: bottom;
+  background-size: cover;
+  color: white;
+
+  .container{
+
+    padding: 2em 0em;
+
+    .left-col{
+
+      padding: 4.5em 0em;
+
+      .car-images{
+        width: 100%;
+        height: 100%;
+
+        transition: all 0.5s;
+
+        &:hover{
+          scale: 1.2;
+          box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.418);
+        }
+      }
+    }
+
+
+
+    #track-layout{
+      width: 100%;
+
+    }
+  }
+
+
+}
+
+@media (max-width: 991px) {
+
+  .main-container{
+
+    .container{
+
+      padding: 0em 0em;
+
+      .row{
+
+        margin: 0px;
+
+          .left-col{
+
+            padding: 2em 2em;
+
+            h1{
+              margin-bottom: 20px;
+            }
+
+            row{
+
+              align-items: center;
+
+              .car-images-container{
+
+                padding: 10px;
+                width: 300px;
+                margin-bottom: 25px;
+
+                .car-images{
+
+                  width: 100%;
+                  height: 100%;
+
+                  transition: none;
+
+                  &:hover{
+                    scale: 1;
+                    box-shadow: none;
+                  }
+                }
+
+
+              }
+            }
+
+
+        }
+      }
+
+
+
+
+      #track-layout-container{
+        display: flex;
+        justify-content: center;
+        #track-layout{
+          width: 250px;
+          margin-left: 0px;
+        }
+      }
+
+    }
+
+
+  }
+
+
+}

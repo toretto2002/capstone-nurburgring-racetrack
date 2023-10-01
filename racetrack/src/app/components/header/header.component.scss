@@ -1,0 +1,127 @@
+.navbtn{
+  display: none;
+}
+
+
+nav {
+
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  // height: 75px;
+  border-bottom: 2px solid rgba(127,16,16,1);
+
+  img{
+    height: 75px;
+  }
+
+  ul{
+
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+
+    li{
+      margin: 0rem 1.5em;
+
+      a{
+        text-decoration: none;
+        color: #C0C0C0;
+      }
+    }
+
+    li:hover{
+
+      a{
+        color: rgba(127,16,16,1);
+      }
+
+    }
+  }
+
+  .authlink{
+    background-color: rgba(127,16,16,1);
+    margin-right: 50px;
+
+    &:hover{
+      color: #C0C0C0;
+    }
+  }
+
+  button{
+    background-color: rgba(127,16,16,1);
+
+    &:hover{
+      color: #C0C0C0;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+
+  .navbtn{
+    display: block;
+  }
+
+  .navul{
+    display: none !important;
+    transition: all 2s ease-in-out;
+  }
+
+  nav{
+    flex-wrap: wrap;
+
+    .img-container{
+      align-self: flex-start;
+    }
+
+    ul{
+      border-top: 2px solid rgba(127,16,16,1);
+      background-color: #C0C0C0;
+      color: black;
+      flex-grow: 1;
+      justify-content: center;
+      flex-wrap: wrap;
+      order: 1;
+
+      a{
+        color: black !important;
+      }
+    }
+
+    .btn-container{
+      flex-basis: 500px;
+      flex-grow: 2;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 5px 0px;
+
+      a{
+        margin: 0;
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  nav{
+    ul{
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-container{
+      flex-basis: 0;
+    }
+  }
+
+}

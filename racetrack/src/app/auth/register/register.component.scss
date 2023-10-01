@@ -1,0 +1,45 @@
+
+.form-input{
+
+}
+
+.form-bg{
+  background-image: url(../../../assets/images/one-bg.jpg);
+  background-size: cover;
+}
+
+.form-container{
+  background-image: linear-gradient( 0deg,  rgba(0,0,0,1) 9.2%, rgba(127,16,16,1) 103.9% );
+  color: white;
+  width: 50%;
+  margin: 25px 0px;
+  border-radius: 25px;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.644);
+}
+
+.invalid-field{
+  border-color: red;
+  background-color: #ffe6e6;
+}
+
+.sign-up{
+  width: 100%;
+  background:  rgba(127,16,16,1);
+  color: white;
+  border-radius: 10px;
+  border-color: white;
+
+  &:hover{
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.418);
+  }
+}
+
+@media (max-width: 991px)  {
+  .form-container{
+    width: 100%;
+    margin: 0px 0px;
+    border-radius: 0px;
+    box-shadow: none;
+
+  }
+}

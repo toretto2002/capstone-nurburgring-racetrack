@@ -1,0 +1,48 @@
+<div class="bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 column">
+        <h3 class="mt-5">Your Sessions</h3>
+        <table class="w-100 table table-striped table-bordered mt-3">
+          <thead>
+            <tr>
+              <th scope="row">ID</th>
+              <th scope="row">Date Time</th>
+              <th scope="row">Driver</th>
+              <th scope="row">Car</th>
+              <th scope="row">Session Price</th>
+              <th scope="row">Experience Level</th>
+              <th scope="row">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let session of sessions">
+              <td>{{ session.id }}</td>
+              <td>{{ session.dateTime | date : "dd/MM/yyyy HH:mm" }}</td>
+              <td>{{ session.driver.name }} {{ session.driver.lastname }}</td>
+              <td>
+                {{
+                  session.rentableCar
+                    ? "Rented " +
+                      session.rentableCar.brand +
+                      " " +
+                      session.rentableCar.model
+                    : "Private " +
+                      session.privateCar.brand +
+                      " " +
+                      session.privateCar.model
+                }}
+              </td>
+              <td>{{ session.sessionPrice }}€</td>
+              <td>{{ session.experienceLevel }}</td>
+              <td>{{ session.duration }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="w-100 d-flex justify-content-around my-3">
+          <button (click)="logout()" class="btn btn-danger w-50">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

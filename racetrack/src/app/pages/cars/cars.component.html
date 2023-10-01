@@ -1,0 +1,25 @@
+<div class="bg">
+  <div class="container">
+    <div class="row align-items-center justify-content-center p-4">
+      <div id="card" class="card col-12 col-lg-3 m-2" *ngFor="let car of cars">
+        <img id="img" [src]="car.carImgPath" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{ car.model }}</h5>
+          <p class="card-text">
+            {{ car.brand }}
+          </p>
+          <p class="card-text">0-100: {{ car.northToSixty }}s</p>
+          <p class="card-text">Top speed: {{ car.topSpeed }} km/h</p>
+          <a [routerLink]="['learn-more/', car.id]" class="btn learn-more"
+            >Learn more</a
+          >
+          <a
+            class="btn flag-btn"
+            [routerLink]="['/pages/driving-experience/book-session']"
+            >Book a session</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

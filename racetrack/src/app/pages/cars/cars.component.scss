@@ -1,0 +1,50 @@
+.bg{
+  background-image: url(../../../assets/images/one-bg.jpg);
+  background-size: cover;
+
+  #card{
+
+    background-image: linear-gradient( 0deg,  rgba(0,0,0,1) 9.2%, rgba(127,16,16,1) 103.9% );
+    color: white;
+    padding: 10px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 10x 10px 10px rgba(0, 0, 0, 0.575);
+    transition: all 0.3s;
+
+    #img{
+      max-height: 200px;
+    }
+
+    .card-body{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+
+    .learn-more{
+      background-color: rgba(127,16,16,1);
+    }
+
+    .flag-btn{
+      background-image: url(../../../assets/images/racing-checkered-flag.jpg);
+      background-size: cover;
+      color: rgb(255, 0, 0);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: larger;
+      transition: all 0.5s;
+
+      &:hover{
+        background-image: none;
+        background-color: white;
+      }
+    }
+  }
+}

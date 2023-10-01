@@ -1,0 +1,62 @@
+<div class="bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 column">
+        <div class="w-100 d-flex justify-content-around my-3">
+          <a
+            class="btn btn-success w-25"
+            [routerLink]="['/backoffice/rent-car-form']"
+            >add car
+          </a>
+          <a
+            class="btn btn-success w-25"
+            [routerLink]="['/backoffice/all-cars']"
+            >all cars</a
+          >
+        </div>
+        <table class="w-100 table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="row">ID</th>
+              <th scope="row">Date Time</th>
+              <th scope="row">Driver</th>
+              <th scope="row">Car</th>
+              <th scope="row">Session Price</th>
+              <th scope="row">Experience Level</th>
+              <th scope="row">Duration</th>
+              <th scope="row">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let session of sessions">
+              <td>{{ session.id }}</td>
+              <td>{{ session.dateTime | date : "dd/MM/yyyy HH:mm" }}</td>
+              <td>{{ session.driver.name }} {{ session.driver.lastname }}</td>
+              <td>
+                {{
+                  session.rentableCar
+                    ? "Rented " +
+                      session.rentableCar.brand +
+                      " " +
+                      session.rentableCar.model
+                    : "Private " +
+                      session.privateCar.brand +
+                      " " +
+                      session.privateCar.model
+                }}
+              </td>
+              <td>{{ session.sessionPrice }}€</td>
+              <td>{{ session.experienceLevel }}</td>
+              <td>{{ session.duration }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="delete(session.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

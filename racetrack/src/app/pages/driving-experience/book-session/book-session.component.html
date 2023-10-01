@@ -1,0 +1,197 @@
+<div class="d-flex align-items-center justify-content-center form-bg">
+  <div class="form-container mb-5 pb-5">
+    <form
+      [formGroup]="sessionForm"
+      (ngSubmit)="onSubmit()"
+      class="d-flex flex-column align-items-center mt-5"
+    >
+      <div class="w-50 d-flex flex-column align-items-center">
+        <h3 class="align-self-start mb-3">Book Your Lap</h3>
+        <p class="m-0 align-self-start">Date</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            sessionForm.get('date')?.invalid && sessionForm.get('date')?.touched
+          "
+        >
+          Ensure that the selected date is after today and that the selected day
+          is not Sunday or Monday.
+        </p>
+        <input
+          type="date"
+          formControlName="date"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              sessionForm.get('date')?.invalid &&
+              sessionForm.get('date')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Time</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            sessionForm.get('time')?.invalid && sessionForm.get('time')?.touched
+          "
+        >
+          You have to select the time of the session
+        </p>
+        <select
+          formControlName="time"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              sessionForm.get('time')?.invalid &&
+              sessionForm.get('time')?.touched
+          }"
+        >
+          <option value="" disabled selected>Select a time.</option>
+          <option *ngFor="let ora of sessionTimes" [value]="ora">
+            {{ ora }}
+          </option>
+        </select>
+        <p class="m-0 align-self-start">Experience Level</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            sessionForm.get('level')?.invalid &&
+            sessionForm.get('level')?.touched
+          "
+        >
+          You have to select the level of experience
+        </p>
+        <select
+          class="form-input w-100 mb-3"
+          formControlName="level"
+          [ngClass]="{
+            'invalid-field':
+              sessionForm.get('level')?.invalid &&
+              sessionForm.get('level')?.touched
+          }"
+        >
+          <option value="" disabled selected>
+            Select your level of experience.
+          </option>
+          <option value="BEGINNER">Beginner</option>
+          <option value="INTERMEDIATE">Intermediate</option>
+          <option value="ADVANCED">Advanced</option>
+          <option value="EXPERT">Expert</option>
+        </select>
+        <p class="m-0 align-self-start">How many laps do you want to do?</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            sessionForm.get('laps')?.invalid && sessionForm.get('laps')?.touched
+          "
+        >
+          Enter a number from 1 to 3.
+        </p>
+        <input
+          formControlName="laps"
+          type="number"
+          min="1"
+          max="3"
+          value="1"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              sessionForm.get('laps')?.invalid &&
+              sessionForm.get('laps')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">What do you want to do?</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            sessionForm.get('carType')?.invalid &&
+            sessionForm.get('carType')?.touched
+          "
+        >
+          You Have to select an option
+        </p>
+        <select
+          formControlName="carType"
+          class="form-input w-100 mb-3"
+          formControlName="carType"
+          [ngClass]="{
+            'invalid-field':
+              sessionForm.get('carType')?.invalid &&
+              sessionForm.get('carType')?.touched
+          }"
+        >
+          <option value="" disabled selected>
+            Select the car you want to use.
+          </option>
+          <option value="privateCar">Your car</option>
+          <option value="rentACar">Rent a car</option>
+        </select>
+      </div>
+      <div
+        *ngIf="this.sessionForm.value.carType == 'privateCar'"
+        formGroupName="privateCar"
+        class="w-50 d-flex flex-column align-items-center mt-2"
+      >
+        <h3 class="align-self-start mb-3">Register Your Car</h3>
+        <p class="m-0 align-self-start">Licence plate</p>
+        <input
+          type="text"
+          formControlName="licencePlate"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Year of enrollment</p>
+        <input
+          type="text"
+          formControlName="year"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Brand</p>
+        <input
+          type="text"
+          formControlName="brand"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Model</p>
+        <input
+          type="text"
+          formControlName="model"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Engine displacement</p>
+        <input
+          type="text"
+          formControlName="displacement"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Fuel</p>
+        <select formControlName="fuel" class="form-input w-100 mb-3">
+          <option value="" disabled selected>
+            Select the fuel your car uses.
+          </option>
+          <option value="DIESEL">Diesel</option>
+          <option value="PETROL">Petrol</option>
+          <option value="HYBRID">Hybrid</option>
+          <option value="ELECTRIC">Electric</option>
+        </select>
+      </div>
+      <div
+        *ngIf="this.sessionForm.value.carType == 'rentACar'"
+        class="w-50 d-flex flex-column align-items-center mt-2"
+      >
+        <select
+          name=""
+          id=""
+          class="form-input w-100 mb-3"
+          formControlName="rentableCarId"
+        >
+          <option disabled selected>Choose the care you want to track</option>
+          <option *ngFor="let car of cars" [value]="car.id">
+            {{ car.model }}
+          </option>
+        </select>
+      </div>
+      <button class="w-50 my-2 flag-btn btn" [disabled]="!sessionForm.valid">
+        Book
+      </button>
+    </form>
+  </div>
+</div>

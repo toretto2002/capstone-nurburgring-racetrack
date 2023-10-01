@@ -1,0 +1,22 @@
+<div class="bg">
+  <div class="container">
+    <div class="row d-flex flex-column align-items-center p-5">
+      <div class="col-8 d-flex flex-column align-items-center gradient p-4">
+        <h3 class="text-light">Client Assistence</h3>
+        <div class="chat-container">
+          <ul class="chat">
+            <li *ngFor="let line of chatMessages">{{ line }}</li>
+          </ul>
+        </div>
+        <div class="p-2 w-100 d-flex justify-content-center">
+          <input
+            id="input"
+            [(ngModel)]="userInput"
+            (keyup.enter)="sendQuestion()"
+            placeholder="Type here your question and click send"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

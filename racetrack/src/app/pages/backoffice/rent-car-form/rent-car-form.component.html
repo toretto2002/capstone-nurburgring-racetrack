@@ -1,0 +1,415 @@
+<div class="d-flex align-items-center justify-content-center form-bg">
+  <div class="form-container mb-5 pb-5">
+    <form
+      [formGroup]="rentCarForm"
+      (ngSubmit)="onSubmit()"
+      class="d-flex flex-column align-items-center mt-5"
+    >
+      <div class="w-50 d-flex flex-column align-items-center">
+        <h3 class="align-self-start mb-3">Inserisci i dati della macchina</h3>
+        <p class="m-0 align-self-start">Brand</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('brand')?.invalid &&
+            rentCarForm.get('brand')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="brand"
+          formControlName="brand"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Model</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('model')?.invalid &&
+            rentCarForm.get('model')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="model"
+          formControlName="model"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Price</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('price')?.invalid &&
+            rentCarForm.get('price')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="price"
+          formControlName="price"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Strarting production year</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('startingProductionYear')?.invalid &&
+            rentCarForm.get('startingProductionYear')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="year"
+          formControlName="startingProductionYear"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Car Type</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('carBody')?.invalid &&
+            rentCarForm.get('carBody')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <select
+          name=""
+          id=""
+          formControlName="carBody"
+          class="form-input w-100 mb-3"
+        >
+          <option value="" disabled selected>Select the car Type</option>
+          <option *ngFor="let item of carBody" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+        <p class="m-0 align-self-start">Doors</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('doors')?.invalid &&
+            rentCarForm.get('doors')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="number"
+          placeholder="doors"
+          formControlName="doors"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Seats</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('seats')?.invalid &&
+            rentCarForm.get('seats')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="number"
+          placeholder="seats"
+          formControlName="seats"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Trunk capacity</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('trunkCapacity')?.invalid &&
+            rentCarForm.get('trunkCapacity')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="number"
+          placeholder="liters"
+          formControlName="trunkCapacity"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Weight</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('weight')?.invalid &&
+            rentCarForm.get('weight')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="weight"
+          formControlName="weight"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">length</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('length')?.invalid &&
+            rentCarForm.get('length')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="length"
+          formControlName="length"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">width</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('width')?.invalid &&
+            rentCarForm.get('width')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="width"
+          formControlName="width"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">height</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('height')?.invalid &&
+            rentCarForm.get('height')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="height"
+          formControlName="height"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Wheel distance</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('wheelDistance')?.invalid &&
+            rentCarForm.get('wheelDistance')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="wheel distance"
+          formControlName="wheelDistance"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Engine</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('engine')?.invalid &&
+            rentCarForm.get('engine')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="Engine"
+          formControlName="engine"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Displacement</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('displacement')?.invalid &&
+            rentCarForm.get('displacement')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="displacement"
+          formControlName="displacement"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Fuel Type</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('fuel')?.invalid && rentCarForm.get('fuel')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <select formControlName="fuel" class="form-input w-100 mb-3">
+          <option value="" disabled selected>
+            Select the fuel your car uses.
+          </option>
+          <option value="DIESEL">Diesel</option>
+          <option value="PETROL">Petrol</option>
+          <option value="HYBRID">Hybrid</option>
+          <option value="ELECTRIC">Electric</option>
+        </select>
+        <p class="m-0 align-self-start">Power/rpm</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('maxPowerEngineSpeed')?.invalid &&
+            rentCarForm.get('maxPowerEngineSpeed')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="pwer/rpm"
+          formControlName="maxPowerEngineSpeed"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Torque</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('maxTorque')?.invalid &&
+            rentCarForm.get('maxTorque')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="torque"
+          formControlName="maxTorque"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Drive Type</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('driveType')?.invalid &&
+            rentCarForm.get('driveType')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <select
+          name=""
+          id=""
+          formControlName="driveType"
+          class="form-input w-100 mb-3"
+        >
+          <option value="" disabled selected>Select the drive type</option>
+          <option *ngFor="let item of driveType" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+        <p class="m-0 align-self-start">Gearbox</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('gearbox')?.invalid &&
+            rentCarForm.get('gearbox')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <select
+          name=""
+          id=""
+          formControlName="gearbox"
+          class="form-input w-100 mb-3"
+        >
+          <option value="" disabled selected>Select the gearbox</option>
+          <option *ngFor="let item of gearBox" [value]="item">
+            {{ item }}
+          </option>
+        </select>
+        <p class="m-0 align-self-start">Gears</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('gears')?.invalid &&
+            rentCarForm.get('gears')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="number"
+          placeholder="gears"
+          formControlName="gears"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Top speed</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('topSpeed')?.invalid &&
+            rentCarForm.get('topSpeed')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="number"
+          placeholder="top speed"
+          formControlName="topSpeed"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">North to sixty</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('northToSixty')?.invalid &&
+            rentCarForm.get('northToSixty')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="string"
+          placeholder="0/60"
+          formControlName="northToSixty"
+          class="form-input w-100 mb-3"
+        />
+        <p class="m-0 align-self-start">Car image url</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            rentCarForm.get('carImg')?.invalid &&
+            rentCarForm.get('carImg')?.touched
+          "
+        >
+          The field must be filled correctly
+        </p>
+        <input
+          type="text"
+          placeholder="car image url"
+          formControlName="carImgPath"
+          class="form-input w-100 mb-3"
+        />
+        <button [disabled]="!rentCarForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

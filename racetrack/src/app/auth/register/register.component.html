@@ -1,0 +1,428 @@
+<div class="d-flex align-items-center justify-content-center form-bg">
+  <div class="form-container">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+      class="d-flex flex-column align-items-center mt-5"
+    >
+      <div class="w-50 d-flex flex-column align-items-center">
+        <h3 class="align-self-start mb-3">Sign Up</h3>
+        <p class="m-0 align-self-start">First name</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('name')?.invalid &&
+            registerForm.get('name')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="First name"
+          formControlName="name"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('name')?.invalid &&
+              registerForm.get('name')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Last name</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('lastname')?.invalid &&
+            registerForm.get('lastname')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Last name"
+          formControlName="lastname"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('lastname')?.invalid &&
+              registerForm.get('lastname')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Telephone</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('mobile')?.invalid &&
+            registerForm.get('mobile')?.touched
+          "
+        >
+          Insert a valid phone number!
+        </p>
+        <input
+          type="tel"
+          placeholder="Telephone"
+          formControlName="mobile"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('mobile')?.invalid &&
+              registerForm.get('mobile')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Date of birth</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('birthdate')?.invalid &&
+            registerForm.get('birthdate')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="date"
+          placeholder="Date of birth"
+          formControlName="birthdate"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('birthdate')?.invalid &&
+              registerForm.get('birthdate')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Gender</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('genre')?.invalid &&
+            registerForm.get('genre')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <select
+          name="gender"
+          id="gender"
+          formControlName="genre"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('genre')?.invalid &&
+              registerForm.get('genre')?.touched
+          }"
+        >
+          <option value="" disabled selected>Seleziona un'opzione</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="OTHER">Other</option>
+        </select>
+        <p class="m-0 align-self-start">E-mail</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="email"
+          placeholder="E-mail"
+          formControlName="email"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('email')?.invalid &&
+              registerForm.get('email')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Password</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('password')?.invalid &&
+              registerForm.get('password')?.touched
+          }"
+        />
+      </div>
+      <div
+        formGroupName="address"
+        class="w-50 d-flex flex-column align-items-center mt-4"
+      >
+        <h3 class="align-self-start mb-3">Address</h3>
+        <div class="d-flex mb-3">
+          <div>
+            <p class="m-0 align-self-start">Street</p>
+            <p
+              class="m-0 text-danger"
+              *ngIf="
+                registerForm.get('address.street')?.invalid &&
+                registerForm.get('address.street')?.touched
+              "
+            >
+              You have to fill this field!
+            </p>
+            <input
+              type="text"
+              placeholder="Street"
+              formControlName="street"
+              class="w-100"
+              [ngClass]="{
+                'invalid-field':
+                  registerForm.get('address.street')?.invalid &&
+                  registerForm.get('address.street')?.touched
+              }"
+            />
+          </div>
+          <div class="d-flex flex-column">
+            <p class="m-0 w-50 align-self-end">N°</p>
+            <p
+              class="m-0 text-danger"
+              *ngIf="
+                registerForm.get('address.streetNumber')?.invalid &&
+                registerForm.get('address.streetNumber')?.touched
+              "
+            >
+              You have to fill this field!
+            </p>
+            <input
+              type="text"
+              placeholder="N°"
+              formControlName="streetNumber"
+              class="w-50 align-self-end"
+              [ngClass]="{
+                'invalid-field':
+                  registerForm.get('address.streetNumber')?.invalid &&
+                  registerForm.get('address.streetNumber')?.touched
+              }"
+            />
+          </div>
+        </div>
+        <p class="m-0 align-self-start">City</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('address.city')?.invalid &&
+            registerForm.get('address.city')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="City"
+          formControlName="city"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('address.city')?.invalid &&
+              registerForm.get('address.city')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Province</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('address.province')?.invalid &&
+            registerForm.get('address.province')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Province"
+          formControlName="province"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('address.province')?.invalid &&
+              registerForm.get('address.province')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Postal code</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('address.postalCode')?.invalid &&
+            registerForm.get('address.postalCode')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Postal code"
+          formControlName="postalCode"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('address.postalCode')?.invalid &&
+              registerForm.get('address.postalCode')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Country</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('address.country')?.invalid &&
+            registerForm.get('address.country')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Country"
+          formControlName="country"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('address.country')?.invalid &&
+              registerForm.get('address.country')?.touched
+          }"
+        />
+      </div>
+
+      <div
+        formGroupName="licence"
+        class="w-50 d-flex flex-column align-items-center mt-4"
+      >
+        <h3 class="align-self-start mb-3">Licence</h3>
+        <p class="m-0 align-self-start">Licence number</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('licence.licenceNumber')?.invalid &&
+            registerForm.get('licence.licenceNumber')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Licence number"
+          formControlName="licenceNumber"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('licence.licenceNumber')?.invalid &&
+              registerForm.get('licence.licenceNumber')?.touched
+          }"
+        />
+
+        <p class="m-0 align-self-start">Date of issue</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('licence.dateOfIssue')?.invalid &&
+            registerForm.get('licence.dateOfIssue')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="date"
+          placeholder="Date of issue"
+          formControlName="dateOfIssue"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('licence.dateOfIssue')?.invalid &&
+              registerForm.get('licence.dateOfIssue')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Expiration date</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('licence.expirationDate')?.invalid &&
+            registerForm.get('licence.expirationDate')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="date"
+          placeholder="Expiration date"
+          formControlName="expirationDate"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('licence.expirationDate')?.invalid &&
+              registerForm.get('licence.expirationDate')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Category</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('licence.category')?.invalid &&
+            registerForm.get('licence.category')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Category"
+          formControlName="category"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('licence.category')?.invalid &&
+              registerForm.get('licence.category')?.touched
+          }"
+        />
+        <p class="m-0 align-self-start">Issuing authority</p>
+        <p
+          class="m-0 text-danger"
+          *ngIf="
+            registerForm.get('licence.issuingAuthority')?.invalid &&
+            registerForm.get('licence.issuingAuthority')?.touched
+          "
+        >
+          You have to fill this field!
+        </p>
+        <input
+          type="text"
+          placeholder="Issuing authority"
+          formControlName="issuingAuthority"
+          class="form-input w-100 mb-3"
+          [ngClass]="{
+            'invalid-field':
+              registerForm.get('licence.issuingAuthority')?.invalid &&
+              registerForm.get('licence.issuingAuthority')?.touched
+          }"
+        />
+      </div>
+      <div class="d-flex w-50" formGroupName="privacy">
+        <p class="m-0 flex-shrink-1">
+          I have read and accept the <a href="#">Privacy Policy</a> and
+          <a href="#">Site Policy</a>.
+        </p>
+        <input type="checkbox" formControlName="checkbox" />
+      </div>
+      <div class="w-50 mt-3 mb-5">
+        <button class="sign-up" [disabled]="!registerForm.valid">
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
