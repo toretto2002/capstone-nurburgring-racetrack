@@ -1,32 +1,32 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import OpenAI from 'openai';
+import { IChatCompletion } from 'src/app/interfaces/ichat-completion';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FaqsService {
   private apiKey: string =
-    'Bearer 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';
+    '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';
 
   constructor(private http: HttpClient) {}
 
-  getResponse(userInput: string) {
+  async getResponse(userInput: string) {
     let reqHeaders: HttpHeaders = new HttpHeaders();
+    const openai = new OpenAI({
+      apiKey: this.apiKey,
+      dangerouslyAllowBrowser: true,
+    });
 
-    reqHeaders = reqHeaders.set('Content-Type', 'application/json');
-    reqHeaders = reqHeaders.set('Authorization', this.apiKey);
-
-    console.log(reqHeaders);
-
-    const requestBody = {
-      prompt: userInput,
-      max_tokens: 50,
-    };
-
-    return this.http.post(
-      'https://api.openai.com/v1/engines/davinci/completions',
-      requestBody,
-      { headers: reqHeaders }
-    );
+    try {
+      const completion = await openai.chat.completions.create({
+        messages: [{ role: 'system', content: userInput }],
+        model: 'gpt-3.5-turbo',
+      });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 }
